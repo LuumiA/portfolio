@@ -141,10 +141,12 @@ p {
   border-radius: 50px;
   font-weight: 600;
   transition: background 0.3s;
+  text-decoration: none; /* Supprime le soulignement */
 }
 
 .hero .btn:hover {
   background: #ffc107;
+  text-decoration: none; /* Assurez-vous que le survol ne réapplique pas de soulignement */
 }
 
 /* ============================

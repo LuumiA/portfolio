@@ -110,7 +110,7 @@
     <section id="contact" class="contact">
       <div class="container">
         <h2>Contactez-moi</h2>
-        <form>
+        <form id="contact-form">
           <input type="text" name="nom" placeholder="Votre nom" required />
           <input type="email" name="email" placeholder="Votre email" required />
           <textarea
@@ -120,6 +120,7 @@
           ></textarea>
           <button type="submit">Envoyer</button>
         </form>
+        <p id="form-status"></p>
       </div>
     </section>
 
@@ -128,6 +129,7 @@
         <p>© 2025 LuumiA. Tous droits réservés.</p>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
