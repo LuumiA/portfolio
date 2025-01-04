@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuumiA - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body data-theme="dark">
+    <header class="header">
+      <div class="container">
+        <div class="logo">LuumiA</div>
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        <nav class="nav mobile">
+          <ul>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#a-propos">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle">🌙</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1 id="typewriter"></h1>
+        <p>Transformez vos idées en récits captivants.</p>
+        <a href="#portfolio" class="btn">Voir mon travail</a>
+      </div>
+    </section>
+
+    <section id="a-propos" class="about">
+      <div class="container">
+        <h2>À propos de moi</h2>
+        <p class="line">Avec une passion autodidacte pour le montage vidéo,</p>
+        <p class="line">je transforme vos idées en récits captivants.</p>
+        <p class="line">
+          Que ce soit pour des vlogs dynamiques, des vidéos gaming immersives,
+          best-of ou just chatting, je suis là pour raconter votre histoire !
+        </p>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <h2>Mes Vidéos</h2>
+        <div class="grid">
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/jlcG8ZnWw7o"
+              title="Vidéo 1"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <h3>JL-Tomy</h3>
+              <a
+                href="https://www.youtube.com/watch?v=jlcG8ZnWw7o"
+                target="_blank"
+                class="btn"
+                >Voir sur YouTube</a
+              >
+            </div>
+          </div>
+
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/hLI0oawPs5k"
+              title="Vidéo 2"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <h3>NRPZ & LuumiA</h3>
+              <a
+                href="https://www.youtube.com/watch?v=hLI0oawPs5k"
+                target="_blank"
+                class="btn"
+                >Voir sur YouTube</a
+              >
+            </div>
+          </div>
+
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/mZybds5YdW4"
+              title="Vidéo 3"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+            <div class="video-info">
+              <h3>NRPZ & LuumiA</h3>
+              <a
+                href="https://www.youtube.com/watch?v=mZybds5YdW4"
+                target="_blank"
+                class="btn"
+                >Voir sur YouTube</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contactez-moi</h2>
+        <form>
+          <input type="text" name="nom" placeholder="Votre nom" required />
+          <input type="email" name="email" placeholder="Votre email" required />
+          <textarea
+            name="message"
+            placeholder="Votre message"
+            required
+          ></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 LuumiA. Tous droits réservés.</p>
+      </div>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
