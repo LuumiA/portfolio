@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // === Attendre que le DOM soit complètement chargé ===
 document.addEventListener("DOMContentLoaded", () => {
   // === Gestion du thème sombre/clair ===
@@ -5,11 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentTheme = localStorage.getItem("theme") || "dark";
 
   if (themeToggle) {
-    // Applique le thème actuel à la page
     document.body.setAttribute("data-theme", currentTheme);
     themeToggle.textContent = currentTheme === "dark" ? "🌙" : "☀️";
 
-    // Ajoute un écouteur pour basculer entre les thèmes
     themeToggle.addEventListener("click", () => {
       const newTheme =
         document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (menuToggle && nav) {
     menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("open"); // Affiche ou masque le menu mobile
+      nav.classList.toggle("open");
     });
   }
 
   // === Effet de machine à écrire ===
   const typewriterElement = document.getElementById("typewriter");
-  const typewriterText = "Je suis Nicolas, monteur freelance créatif.";
+  const typewriterText = "Je suis Nicolas, développeur web créatif.";
 
   if (typewriterElement) {
     let i = 0;
@@ -40,23 +40,23 @@ document.addEventListener("DOMContentLoaded", () => {
       if (i < typewriterText.length) {
         typewriterElement.innerHTML += typewriterText.charAt(i);
         i++;
-        setTimeout(typeWriter, 50); // 50ms pour un effet rapide
+        setTimeout(typeWriter, 50);
       }
     }
 
-    typeWriter(); // Démarre l'effet immédiatement
+    typeWriter();
   } else {
-    console.error("L'élément 'typewriter' est introuvable dans le DOM.");
+    console.warn("L'élément 'typewriter' est introuvable dans le DOM.");
   }
 
-  // === Animation des vidéos au défilement ===
-  const videos = document.querySelectorAll(".video");
+  // === Animation des cartes portfolio au défilement ===
+  const projects = document.querySelectorAll(".project");
 
-  const revealVideosOnScroll = () => {
-    videos.forEach((video) => {
-      const rect = video.getBoundingClientRect();
+  const revealProjectsOnScroll = () => {
+    projects.forEach((project) => {
+      const rect = project.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
-        video.classList.add("visible"); // Ajoute la classe "visible" aux vidéos
+        project.classList.add("visible");
       }
     });
   };
@@ -69,21 +69,56 @@ document.addEventListener("DOMContentLoaded", () => {
       const rect = line.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
         if (line instanceof HTMLElement) {
-          line.style.animationDelay = `${index * 0.2}s`; // Décale l'animation
-          line.classList.add("visible"); // Ajoute la classe "visible"
+          line.style.animationDelay = `${index * 0.2}s`;
+          line.classList.add("visible");
         }
       }
     });
   };
 
+  // === Animation au scroll pour les icônes des technologies ===
+  const skills = document.querySelectorAll(".skill");
+
+  const revealSkillsOnScroll = () => {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    skills.forEach((skill) => observer.observe(skill));
+  };
+
   // === Gestion des animations au scroll ===
   const handleScrollAnimations = () => {
-    revealVideosOnScroll();
+    revealProjectsOnScroll();
     revealAboutLinesOnScroll();
   };
 
   window.addEventListener("scroll", handleScrollAnimations);
   handleScrollAnimations(); // Vérifie les animations dès le chargement
+
+  // Initialiser l'observateur pour les icônes des technologies
+  revealSkillsOnScroll();
+
+  // === Gestion des boutons des cartes portfolio ===
+  projects.forEach((project) => {
+    const button = project.querySelector(".btn");
+    if (button) {
+      button.addEventListener("click", () => {
+        const url = button.getAttribute("href");
+        if (url) {
+          window.open(url, "_blank");
+        }
+      });
+    }
+  });
 
   // === Gestion du formulaire de contact avec EmailJS ===
   const form = document.querySelector("#contact-form");
@@ -91,14 +126,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (form && formStatus) {
     try {
-      // Initialise EmailJS avec la clé publique
+      // Vérifie si "emailjs" est disponible
+      if (typeof emailjs === "undefined") {
+        console.error(
+          "EmailJS n'est pas chargé. Assurez-vous que la bibliothèque est incluse dans votre HTML."
+        );
+        return;
+      }
+
       emailjs.init("Yhjm9lzQNZr4XtfIN");
 
-      // Ajoute un écouteur pour gérer la soumission du formulaire
       form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Empêche le rechargement de la page
+        e.preventDefault();
 
-        // Vérifie si "form" est bien un formulaire HTML valide
         if (!(form instanceof HTMLFormElement)) {
           console.error("L'élément trouvé n'est pas un formulaire valide.");
           formStatus.textContent =
@@ -107,13 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        // Récupère les données du formulaire
         const formData = new FormData(form);
         const userName = formData.get("nom");
         const userEmail = formData.get("email");
         const userMessage = formData.get("message");
 
-        // Vérifie que les champs sont remplis
         if (!userName || !userEmail || !userMessage) {
           formStatus.textContent =
             "Veuillez remplir tous les champs avant d'envoyer le message.";
@@ -121,20 +159,18 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        // Structure personnalisée du message
         const emailData = {
           nom: userName,
           email: userEmail,
           message: `Bonjour Nicolas,\n\nVous avez reçu un nouveau message de :\n\nNom : ${userName}\nEmail : ${userEmail}\nMessage : ${userMessage}\n\nCordialement,\n${userName}`,
         };
 
-        // Envoie les données via EmailJS
         emailjs
           .send("service_znffz6t", "template_vq1e6oh", emailData)
           .then(() => {
             formStatus.textContent = "Votre message a été envoyé avec succès !";
             formStatus.style.color = "green";
-            form.reset(); // Réinitialise le formulaire
+            form.reset();
           })
           .catch((error) => {
             formStatus.textContent =
@@ -150,8 +186,8 @@ document.addEventListener("DOMContentLoaded", () => {
       formStatus.style.color = "red";
     }
   } else {
-    console.error(
-      "Le formulaire de contact ou le formStatus est introuvable dans la page."
+    console.warn(
+      "Le formulaire de contact ou l'élément de statut est introuvable dans le DOM."
     );
   }
 });
