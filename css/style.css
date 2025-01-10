@@ -182,21 +182,25 @@ p {
   animation-delay: 0.4s;
 }
 
-/* Icônes des technologies */
+/* Section "Technologies" */
+/* Animation pour les icônes des technologies */
 .skill {
   opacity: 0;
-  transform: scale(0.8); /* Réduction initiale */
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .skill.visible {
   opacity: 1;
-  transform: scale(1); /* Retour à la taille normale */
+  transform: scale(1);
 }
 
 .skills h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.4;
 }
 
 .skills-grid {
