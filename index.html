@@ -116,8 +116,9 @@
           <!-- GitHub -->
           <div class="skill">
             <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
               alt="GitHub"
+              class="github-icon"
             />
             <p>GitHub</p>
           </div>
@@ -259,11 +260,16 @@
       <div class="container">
         <h2>Contactez-moi</h2>
         <form id="contact-form">
-          <input type="text" name="nom" placeholder="Votre nom" required />
-          <input type="email" name="email" placeholder="Votre email" required />
+          <input type="text" name="nom" placeholder="Votre nom *" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="Votre email *"
+            required
+          />
           <textarea
             name="message"
-            placeholder="Votre message"
+            placeholder="Votre message *"
             required
           ></textarea>
           <button type="submit">Envoyer</button>

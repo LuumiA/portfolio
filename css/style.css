@@ -7,6 +7,9 @@
   --secondary-bg: #1e1e1e;
   --button-bg: #ffdd59;
   --button-text: #121212;
+  --input-bg: #292929;
+  --input-text: #ffffff;
+  --input-border: #333333;
 }
 
 [data-theme="light"] {
@@ -16,6 +19,9 @@
   --button-bg: #ffde8a;
   --button-text: #3e3e3e;
   --header-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-text: #000000;
+  --input-border: #ccc;
 }
 
 /* ============================
@@ -364,21 +370,27 @@ p {
   resize: vertical;
 }
 
+/* Champs (input, textarea, button) */
 .contact form input,
 .contact form textarea,
 .contact form button {
   width: 100%;
   padding: 1rem;
   border-radius: 5px;
-  border: 1px solid #333;
   font-size: 1rem;
-  background: #292929;
-  color: #ffffff;
+  box-sizing: border-box;
+
+  background: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
 }
 
+/* Bouton du formulaire */
 .contact form button {
   background: var(--button-bg);
   color: var(--button-text);
+
+  width: 100%;
   padding: 0.6rem 1.2rem;
   border-radius: 25px;
   font-weight: bold;
@@ -386,6 +398,7 @@ p {
   transition: background 0.3s;
 }
 
+/* Effet hover du bouton */
 .contact form button:hover {
   background: #ffc107;
 }
