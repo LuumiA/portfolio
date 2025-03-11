@@ -50,7 +50,10 @@ p {
    HEADER ET NAVIGATION
 ============================ */
 .header {
-  background: var(--header-bg);
+  background: var(
+    --header-bg,
+    var(--bg-color)
+  ); /* Fallback si header-bg n'est pas défini */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   position: sticky;
   top: 0;
@@ -58,21 +61,36 @@ p {
   padding: 1rem 0;
 }
 
+/* 
+   On garde un flex global pour .header .container
+   afin de répartir (logo | nav | bouton thème)
+*/
 .header .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  /* space-between si tu veux le logo à gauche et le bouton thème à droite */
+  justify-content: space-between;
 }
 
-.header .nav {
-  display: flex;
-  gap: 2rem;
+/* Logo */
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
+/* On masque le bouton hamburger si tu ne l'utilises plus */
+.menu-toggle {
+  display: none;
+}
+
+/* Navigation */
 .header .nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 2rem; /* Espace entre chaque lien */
+  margin: 0; /* Supprime les marges par défaut */
+  padding: 0;
 }
 
 .header .nav ul li a {
@@ -86,15 +104,7 @@ p {
   color: var(--button-bg);
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-color);
-}
-
+/* Bouton du thème */
 #theme-toggle {
   background: none;
   border: 2px solid var(--button-bg);
@@ -109,6 +119,26 @@ p {
 #theme-toggle:hover {
   background: var(--button-bg);
   color: var(--bg-color);
+}
+
+/* ============================
+   RÉPONSIVE
+============================ */
+/* Sur mobile, on réduit le gap et la taille de police pour éviter que les liens ne passent à la ligne */
+@media (max-width: 600px) {
+  .header .nav ul {
+    gap: 1rem; /* réduit l'espace */
+  }
+
+  .header .nav ul li a {
+    font-size: 0.9rem; /* texte un peu plus petit */
+  }
+
+  /* Optionnel : si tu veux tout sur une seule ligne, tu laisses "space-between" */
+  /* Sinon, tu peux forcer un certain placement */
+  .header .container {
+    flex-wrap: nowrap; /* Évite le retour à la ligne */
+  }
 }
 
 /* ============================
@@ -315,11 +345,23 @@ p {
 }
 
 .contact form {
-  max-width: 600px;
-  margin: auto;
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+@media (max-width: 600px) {
+  .contact form {
+    max-width: 90%;
+    margin-left: 0px;
+  }
+}
+
+/* Pour le textarea en particulier */
+.contact form textarea {
+  min-height: 250px;
+  resize: vertical;
 }
 
 .contact form input,
