@@ -81,7 +81,7 @@ p,
 .header .container {
   display: flex;
   align-items: center;
-  /* space-between si tu veux le logo à gauche et le bouton thème à droite */
+
   justify-content: space-between;
 }
 
@@ -92,7 +92,6 @@ p,
   color: var(--text-color);
 }
 
-/* On masque le bouton hamburger si tu ne l'utilises plus */
 .menu-toggle {
   display: none;
 }
