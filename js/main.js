@@ -19,16 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === Gestion du menu hamburger ===
-  const menuToggle = document.getElementById("menu-toggle");
-  const nav = document.querySelector(".nav.mobile");
-
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("open");
-    });
-  }
-
   // === Effet de machine à écrire ===
   const typewriterElement = document.getElementById("typewriter");
   const typewriterText = "Je suis Nicolas, développeur web créatif.";
