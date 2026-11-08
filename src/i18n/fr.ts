@@ -1,0 +1,88 @@
+export const fr = {
+  meta: {
+    title: "LuumiA — Développeur web créatif",
+    description:
+      "Nicolas (LuumiA), développeur web créatif. Portfolio de projets React, TypeScript et JavaScript : interfaces modernes, responsives et performantes.",
+  },
+  nav: {
+    about: "À propos",
+    journey: "Parcours",
+    projects: "Projets",
+    contact: "Contact",
+    theme: "Changer de thème",
+    menu: "Menu",
+    language: "Changer de langue",
+  },
+  hero: {
+    badge: "Disponible pour de nouveaux projets",
+    hi: "Salut, je suis",
+    role: "développeur web",
+    words: ["créatif", "passionné", "rigoureux", "moderne"],
+    lead: "Je transforme vos idées en interfaces modernes, rapides et soignées — de la maquette au déploiement.",
+    cta1: "Voir mes projets →",
+    cta2: "Me contacter",
+    scroll: "Défiler",
+  },
+  about: {
+    eyebrow: "À propos",
+    title: "Créativité et rigueur technique",
+    p1: "J'ai suivi une formation d'intégrateur web avec OpenClassrooms, où j'ai acquis une solide expertise en développement web.",
+    p2: "Passionné et motivé, je réalise vos projets en alliant créativité et rigueur technique : interfaces innovantes, sites responsives et performances optimisées.",
+    stats: ["Projets en ligne", "Technologies", "Motivation"],
+  },
+  skills: { label: "Technologies" },
+  journey: {
+    eyebrow: "Parcours",
+    title: "Mon chemin jusqu'ici",
+    items: [
+      {
+        tag: "Formation",
+        title: "Intégrateur web",
+        place: "OpenClassrooms",
+        text: "Acquisition des fondamentaux du développement web : HTML, CSS, JavaScript et intégration responsive.",
+      },
+      {
+        tag: "Projets",
+        title: "Réalisations personnelles et d'étude",
+        place: "React · TypeScript · JavaScript",
+        text: "Conception et mise en ligne de plusieurs sites : plateforme de réservation, comparateur de prix, site vitrine…",
+      },
+      {
+        tag: "Aujourd'hui",
+        title: "Ouvert aux opportunités",
+        place: "Freelance · Emploi",
+        text: "Je cherche de nouveaux projets où allier créativité et rigueur technique.",
+      },
+    ],
+    cv: "Télécharger mon CV",
+  },
+  projects: {
+    eyebrow: "Portfolio",
+    title: "Mes projets",
+    visit: "Voir le site ↗",
+    code: "Code",
+    details: "Détails",
+    close: "Fermer",
+    stack: "Technologies",
+    preview: "Aperçu du projet",
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Travaillons ensemble",
+    sub: "Une idée, un projet ? Écrivez-moi, je réponds rapidement.",
+    name: "Nom",
+    namePh: "Votre nom",
+    email: "Email",
+    emailPh: "vous@exemple.com",
+    message: "Message",
+    messagePh: "Parlez-moi de votre projet…",
+    send: "Envoyer le message",
+    sending: "Envoi…",
+    ok: "Votre message a été envoyé avec succès !",
+    error: "Une erreur est survenue. Veuillez réessayer.",
+    wait: "Merci de patienter un instant avant de renvoyer un message.",
+  },
+  footer: { built: "Conçu et développé avec React." },
+};
+
+export type Dict = typeof fr;

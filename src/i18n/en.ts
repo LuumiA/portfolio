@@ -1,0 +1,88 @@
+import type { Dict } from "./fr";
+
+export const en: Dict = {
+  meta: {
+    title: "LuumiA — Creative Web Developer",
+    description:
+      "Nicolas (LuumiA), creative web developer. Portfolio of React, TypeScript and JavaScript projects: modern, responsive and fast interfaces.",
+  },
+  nav: {
+    about: "About",
+    journey: "Journey",
+    projects: "Projects",
+    contact: "Contact",
+    theme: "Toggle theme",
+    menu: "Menu",
+    language: "Change language",
+  },
+  hero: {
+    badge: "Available for new projects",
+    hi: "Hi, I'm",
+    role: "web developer",
+    words: ["creative", "passionate", "rigorous", "modern"],
+    lead: "I turn your ideas into modern, fast and polished interfaces — from mockup to deployment.",
+    cta1: "See my projects →",
+    cta2: "Get in touch",
+    scroll: "Scroll down",
+  },
+  about: {
+    eyebrow: "About",
+    title: "Creativity and technical rigor",
+    p1: "I completed a web integrator program with OpenClassrooms, where I built solid expertise in web development.",
+    p2: "Passionate and motivated, I deliver your projects by combining creativity and technical rigor: innovative interfaces, responsive websites and optimized performance.",
+    stats: ["Live projects", "Technologies", "Motivation"],
+  },
+  skills: { label: "Technologies" },
+  journey: {
+    eyebrow: "Journey",
+    title: "How I got here",
+    items: [
+      {
+        tag: "Training",
+        title: "Web integrator",
+        place: "OpenClassrooms",
+        text: "Learned the fundamentals of web development: HTML, CSS, JavaScript and responsive integration.",
+      },
+      {
+        tag: "Projects",
+        title: "Personal and course projects",
+        place: "React · TypeScript · JavaScript",
+        text: "Designed and shipped several websites: a booking platform, a price comparator, a showcase site…",
+      },
+      {
+        tag: "Today",
+        title: "Open to opportunities",
+        place: "Freelance · Full-time",
+        text: "Looking for new projects where I can combine creativity and technical rigor.",
+      },
+    ],
+    cv: "Download my resume",
+  },
+  projects: {
+    eyebrow: "Portfolio",
+    title: "My projects",
+    visit: "Visit site ↗",
+    code: "Code",
+    details: "Details",
+    close: "Close",
+    stack: "Tech stack",
+    preview: "Preview of the project",
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Let's work together",
+    sub: "Got an idea or a project? Write to me, I reply quickly.",
+    name: "Name",
+    namePh: "Your name",
+    email: "Email",
+    emailPh: "you@example.com",
+    message: "Message",
+    messagePh: "Tell me about your project…",
+    send: "Send message",
+    sending: "Sending…",
+    ok: "Your message has been sent successfully!",
+    error: "Something went wrong. Please try again.",
+    wait: "Please wait a moment before sending another message.",
+  },
+  footer: { built: "Designed and built with React." },
+};
