@@ -1,318 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LuumiA - Portfolio</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>LuumiA — Développeur web créatif</title>
+    <meta
+      name="description"
+      content="Nicolas (LuumiA), développeur web créatif. Portfolio de projets React, TypeScript et JavaScript : interfaces modernes, responsives et performantes."
+    />
+    <meta name="author" content="Nicolas — LuumiA" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0b0b12" />
+    <link rel="canonical" href="https://luumia.github.io/portfolio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LuumiA" />
+    <meta property="og:url" content="https://luumia.github.io/portfolio/" />
+    <meta property="og:title" content="LuumiA — Développeur web créatif" />
+    <meta
+      property="og:description"
+      content="Nicolas (LuumiA), développeur web créatif. Portfolio de projets React, TypeScript et JavaScript : interfaces modernes, responsives et performantes."
+    />
+    <meta property="og:image" content="https://luumia.github.io/portfolio/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LuumiA — Développeur web créatif" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LuumiA — Développeur web créatif" />
+    <meta
+      name="twitter:description"
+      content="Nicolas (LuumiA), développeur web créatif. Portfolio de projets React, TypeScript et JavaScript : interfaces modernes, responsives et performantes."
+    />
+    <meta name="twitter:image" content="https://luumia.github.io/portfolio/og-image.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Données structurées -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nicolas",
+        "alternateName": "LuumiA",
+        "url": "https://luumia.github.io/portfolio/",
+        "image": "https://luumia.github.io/portfolio/og-image.png",
+        "jobTitle": "Développeur web",
+        "description": "Développeur web créatif, spécialisé en React, TypeScript et JavaScript.",
+        "knowsAbout": ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Sass", "Node.js"],
+        "sameAs": ["https://github.com/LuumiA"]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body data-theme="dark">
-    <header class="header">
-      <div class="container">
-        <div class="logo">LuumiA</div>
-        <button id="menu-toggle" class="menu-toggle">☰</button>
-        <nav class="nav mobile">
-          <ul>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#a-propos">À propos</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-        <button id="theme-toggle">🌙</button>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div class="container">
-        <h1 id="typewriter"></h1>
-        <p>Transformez vos idées en récits captivants.</p>
-        <a href="#portfolio" class="btn">Voir mon travail</a>
-      </div>
-    </section>
-
-    <!-- Section "À propos de moi" mise à jour -->
-    <section class="about" id="a-propos">
-      <div class="container">
-        <h2>À propos de moi</h2>
-        <p class="line">
-          J'ai suivi une formation d'intégrateur web avec OpenClassrooms, où
-          j'ai acquis une solide expertise en développement web.
-        </p>
-        <p class="line">
-          Passionné et motivé, je suis prêt à réaliser vos projects alliant
-          créativité et rigueur technique.
-        </p>
-        <p class="line">
-          Que ce soit pour créer des interfaces innovantes, des sites
-          responsives ou optimiser les performances, je mets mes compétences à
-          votre service.
-        </p>
-      </div>
-    </section>
-
-    <!-- Nouvelle section "Technologies" -->
-    <section class="skills">
-      <div class="container">
-        <h2>Technologies que je maîtrise</h2>
-        <div class="skills-grid">
-          <!-- HTML -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-              alt="HTML"
-            />
-            <p>HTML5</p>
-          </div>
-
-          <!-- CSS -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-              alt="CSS"
-            />
-            <p>CSS3</p>
-          </div>
-
-          <!-- JavaScript -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              alt="JavaScript"
-            />
-            <p>JavaScript</p>
-          </div>
-
-          <!-- Sass -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"
-              alt="Sass"
-            />
-            <p>Sass</p>
-          </div>
-
-          <!-- React -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-              alt="React"
-            />
-            <p>React</p>
-          </div>
-
-          <!-- Node.js -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-              alt="Node.js"
-            />
-            <p>Node.js</p>
-          </div>
-
-          <!-- GitHub -->
-          <div class="skill">
-            <img
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
-              alt="GitHub"
-              class="github-icon"
-            />
-            <p>GitHub</p>
-          </div>
-
-          <!-- Vercel -->
-          <div class="skill">
-            <img
-              src="https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg"
-              alt="Vercel"
-            />
-            <p>Vercel</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-        <h2>Mes Projets</h2>
-        <div class="grid">
-          <!-- Project 1 -->
-          <div class="project">
-            <div class="image-container">
-              <img
-                src="./img/Kasa.webp"
-                alt="Site pour réserver des studi/appartements"
-              />
-            </div>
-            <div class="project-info">
-              <h3>Project Kasa</h3>
-              <p class="project-description">
-                Ce projet de réservation d'appartements a été développé avec
-                React (utilisant TypeScript) et optimisé grâce à Vite. Il est
-                déployé sur Vercel.
-              </p>
-
-              <a
-                href="https://kasa-lyart-eight.vercel.app/"
-                target="_blank"
-                class="btn"
-                >Voir le site</a
-              >
-              <a
-                href="https://github.com/LuumiA/Kasa"
-                target="_blank"
-                class="btn btn-source"
-                >Voir le code</a
-              >
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project">
-            <div class="image-container">
-              <img src="./img/OhMyFood.webp" alt="OhMyFood" />
-            </div>
-            <div class="project-info">
-              <h3>OhMyFood</h3>
-              <p class="project-description">
-                Un projet culinaire interactif réalisé avec HTML5, CSS3 et
-                JavaScript afin d'offrir une expérience utilisateur fluide et
-                attractive.
-              </p>
-              <a
-                href="https://luumia.github.io/OhMyFood/"
-                target="_blank"
-                class="btn"
-                >Voir le site</a
-              >
-              <a
-                href="https://github.com/LuumiA/OhMyFood"
-                target="_blank"
-                class="btn btn-source"
-                >Voir le code</a
-              >
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project">
-            <div class="image-container">
-              <img src="./img/SocialLink.webp" alt="Social Links Profile" />
-            </div>
-            <div class="project-info">
-              <h3>Social Links Profile</h3>
-              <p class="project-description">
-                Un projet de profil social conçu avec HTML5, CSS3 et JavaScript
-                pour créer des interfaces dynamiques et intuitives.
-              </p>
-              <a
-                href="https://luumia.github.io/social-links-profile-main/"
-                target="_blank"
-                class="btn"
-                >Voir le site</a
-              >
-              <a
-                href="https://github.com/LuumiA/social-links-profile-main"
-                target="_blank"
-                class="btn btn-source"
-                >Voir le code</a
-              >
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project">
-            <div class="image-container">
-              <img
-                src="./img/nina-carduccie.webp"
-                alt="Site d'une photographe"
-              />
-            </div>
-            <div class="project-info">
-              <h3>Nina Carduccie</h3>
-              <p class="project-description">
-                Site vitrine pour une photographe, développé avec HTML5, CSS3 et
-                JavaScript, mettant en avant une navigation intuitive et un
-                design épuré.
-              </p>
-              <a
-                href="https://nina-carducci-azure.vercel.app/"
-                target="_blank"
-                class="btn"
-                >Voir le site</a
-              >
-              <a
-                href="https://github.com/LuumiA/Nina-Carducci"
-                target="_blank"
-                class="btn btn-source"
-                >Voir le code</a
-              >
-            </div>
-          </div>
-          <!-- Project 5 -->
-          <div class="project">
-            <div class="image-container">
-              <img
-                src="./img/gameDeals.png"
-                alt="Site de comparaison de prix pour les jeux vidéo"
-              />
-            </div>
-            <div class="project-info">
-              <h3>Game Deals</h3>
-              <p class="project-description">
-                Un site de comparaison de prix pour les jeux vidéo, développé
-                avec HTML5, CSS3 et JavaScript, offrant une expérience
-                utilisateur fluide et intuitive.
-              </p>
-              <a
-                href="https://game-deals-delta.vercel.app/"
-                target="_blank"
-                class="btn"
-                >Voir le site</a
-              >
-              <a
-                href="https://github.com/LuumiA/gameDeals"
-                target="_blank"
-                class="btn btn-source"
-                >Voir le code</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Contactez-moi</h2>
-        <form id="contact-form">
-          <input type="text" name="nom" placeholder="Votre nom *" required />
-          <input
-            type="email"
-            name="email"
-            placeholder="Votre email *"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Votre message *"
-            required
-          ></textarea>
-          <button type="submit">Envoyer</button>
-        </form>
-        <p id="form-status"></p>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <p>© 2025 LuumiA. Tous droits réservés.</p>
-      </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="js/main.js"></script>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: sans-serif">
+        LuumiA — Développeur web créatif. Merci d'activer JavaScript pour voir ce portfolio.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
