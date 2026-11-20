@@ -1,5 +1,4 @@
 import { useRef, useState, type FormEvent } from "react";
-import emailjs from "@emailjs/browser";
 import { AnimatePresence, motion } from "motion/react";
 import { useI18n } from "../i18n";
 import Reveal from "./Reveal";
@@ -37,6 +36,8 @@ export default function Contact() {
 
     setStatus({ type: "sending" });
     try {
+      // Chargé à la demande : la bibliothèque n'alourdit pas le premier affichage
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(
         "service_znffz6t",
         "template_vq1e6oh",
