@@ -66,7 +66,7 @@ export default function Header() {
         <div className="header-actions">
           <button
             className="icon-btn lang-btn"
-            aria-label={t.nav.language}
+            aria-label={`${lang === "fr" ? "EN" : "FR"} — ${t.nav.language}`}
             onClick={() => setLang(lang === "fr" ? "en" : "fr")}
           >
             {lang === "fr" ? "EN" : "FR"}

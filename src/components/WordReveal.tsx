@@ -14,11 +14,12 @@ export default function WordReveal({
   return (
     <motion.p
       className={className}
-      aria-label={text}
       initial="hidden"
       animate="show"
       transition={{ staggerChildren: 0.035, delayChildren: delay }}
     >
+      {/* Texte complet pour les lecteurs d'écran ; les mots animés sont masqués pour eux */}
+      <span className="sr-only">{text}</span>
       {words.map((w, i) => (
         <motion.span
           key={i}

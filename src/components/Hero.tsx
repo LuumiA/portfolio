@@ -37,6 +37,14 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [text, deleting, i, words]);
 
+  // Le titre n'est jamais invisible : il est le plus gros élément de la page (LCP), il glisse seulement.
+  const heading = {
+    hidden: { y: 24 },
+    show: { y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+  };
+  // Le plus long mot réserve la place : la mise en page ne bouge pas pendant la frappe.
+  const longest = words.reduce((a, w) => (w.length > a.length ? w : a), "");
+
   const item = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
@@ -53,10 +61,18 @@ export default function Hero() {
         <motion.span variants={item} className="badge">
           <i /> {t.hero.badge}
         </motion.span>
-        <motion.h1 variants={item}>
+        <motion.h1 variants={heading}>
           {t.hero.hi} <span className="gradient">Nicolas</span>,<br />
-          {t.hero.role} <span className="typed">{text}</span>
-          <span className="caret" />
+          {t.hero.role}{" "}
+          <span className="typed-wrap">
+            <span className="typed-ghost" aria-hidden>
+              {longest}
+            </span>
+            <span className="typed-line">
+              <span className="typed">{text}</span>
+              <span className="caret" />
+            </span>
+          </span>
         </motion.h1>
         <WordReveal key={lang} text={t.hero.lead} className="lead" delay={0.9} />
         <motion.div variants={item} className="cta">
