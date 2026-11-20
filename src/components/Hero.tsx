@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { useI18n } from "../i18n";
 import Magnetic from "./Magnetic";
 import WordReveal from "./WordReveal";
+import Hero3D from "./Hero3D";
 
 export default function Hero() {
   const { t, lang } = useI18n();
@@ -52,6 +53,7 @@ export default function Hero() {
 
   return (
     <section id="top" className="hero">
+      <Hero3D />
       <motion.div
         className="hero-content"
         initial="hidden"

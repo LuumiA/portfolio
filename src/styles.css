@@ -927,3 +927,30 @@ main {
 .typed-ghost {
   visibility: hidden;
 }
+
+/* Forme 3D décorative derrière le titre d'accueil */
+.hero {
+  overflow: hidden;
+}
+.hero-3d {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(92vw, 680px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 1000px) {
+  .hero-3d {
+    left: 83%;
+    width: min(36vw, 540px);
+    opacity: 0.8;
+  }
+}
