@@ -10,6 +10,10 @@ export type Project = {
   description: L10n;
   story?: { fr: Story; en: Story };
   image: string;
+  /** Version 640 px de large pour les petits écrans */
+  imageSmall: string;
+  /** Largeur en pixels de `image` (pour srcset) */
+  imageWidth: number;
   tags: string[];
   live: string;
   code: string;
@@ -65,6 +69,8 @@ export const projects: Project[] = [
       },
     },
     image: asset("img/latortue-admin.webp"),
+    imageSmall: asset("img/latortue-admin-640.webp"),
+    imageWidth: 1200,
     tags: ["JavaScript", "SVG", "Node.js"],
     live: "https://luumia.github.io/demo-latortue/",
     code: "https://github.com/LuumiA/demo-latortue",
@@ -118,6 +124,8 @@ export const projects: Project[] = [
       },
     },
     image: asset("img/pilote-demo.webp"),
+    imageSmall: asset("img/pilote-demo-640.webp"),
+    imageWidth: 1200,
     tags: ["Next.js", "TypeScript", "PostgreSQL"],
     live: "https://luumia.github.io/demo-pilote/",
     code: "https://github.com/LuumiA/demo-pilote",
@@ -129,6 +137,8 @@ export const projects: Project[] = [
       en: "Apartment booking platform built with React and TypeScript, optimized with Vite and deployed on Vercel.",
     },
     image: asset("img/Kasa.webp"),
+    imageSmall: asset("img/Kasa-640.webp"),
+    imageWidth: 1400,
     tags: ["React", "TypeScript", "Vite"],
     live: "https://kasa-lyart-eight.vercel.app/",
     code: "https://github.com/LuumiA/Kasa",
@@ -139,7 +149,9 @@ export const projects: Project[] = [
       fr: "Comparateur de prix pour les jeux vidéo, avec une expérience utilisateur fluide et intuitive.",
       en: "Video game price comparison site with a smooth and intuitive user experience.",
     },
-    image: asset("img/gameDeals.png"),
+    image: asset("img/gameDeals.webp"),
+    imageSmall: asset("img/gameDeals-640.webp"),
+    imageWidth: 1400,
     tags: ["JavaScript", "API", "CSS3"],
     live: "https://game-deals-delta.vercel.app/",
     code: "https://github.com/LuumiA/gameDeals",
@@ -151,6 +163,8 @@ export const projects: Project[] = [
       en: "Showcase website for a photographer, with intuitive navigation and a clean design.",
     },
     image: asset("img/nina-carduccie.webp"),
+    imageSmall: asset("img/nina-carduccie-640.webp"),
+    imageWidth: 1400,
     tags: ["HTML5", "CSS3", "JavaScript"],
     live: "https://nina-carducci-azure.vercel.app/",
     code: "https://github.com/LuumiA/Nina-Carducci",
@@ -162,6 +176,8 @@ export const projects: Project[] = [
       en: "Interactive food project designed to deliver a smooth and attractive user experience.",
     },
     image: asset("img/OhMyFood.webp"),
+    imageSmall: asset("img/OhMyFood-640.webp"),
+    imageWidth: 1400,
     tags: ["HTML5", "Sass", "JavaScript"],
     live: "https://luumia.github.io/OhMyFood/",
     code: "https://github.com/LuumiA/OhMyFood",
@@ -173,6 +189,8 @@ export const projects: Project[] = [
       en: "Social profile page built to create dynamic and intuitive interfaces.",
     },
     image: asset("img/SocialLink.webp"),
+    imageSmall: asset("img/SocialLink-640.webp"),
+    imageWidth: 1400,
     tags: ["HTML5", "CSS3", "JavaScript"],
     live: "https://luumia.github.io/social-links-profile-main/",
     code: "https://github.com/LuumiA/social-links-profile-main",

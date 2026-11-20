@@ -44,7 +44,14 @@ function Card({ p, index, onOpen }: { p: Project; index: number; onOpen: () => v
       >
         <motion.div className="shine" style={{ background: shine }} />
         <div className="card-img">
-          <img src={p.image} alt={`${t.projects.preview} ${p.title}`} loading="lazy" />
+          <img
+            src={p.image}
+            srcSet={`${p.imageSmall} 640w, ${p.image} ${p.imageWidth}w`}
+            sizes="(max-width: 820px) 92vw, 540px"
+            alt={`${t.projects.preview} ${p.title}`}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div className="card-body">
           <div className="tags">
@@ -133,7 +140,13 @@ function Modal({ p, onClose }: { p: Project; onClose: () => void }) {
         <button ref={closeRef} className="icon-btn modal-close" aria-label={t.projects.close} onClick={onClose}>
           ✕
         </button>
-        <img src={p.image} alt={`${t.projects.preview} ${p.title}`} />
+        <img
+          src={p.image}
+          srcSet={`${p.imageSmall} 640w, ${p.image} ${p.imageWidth}w`}
+          sizes="(max-width: 640px) 100vw, 640px"
+          alt={`${t.projects.preview} ${p.title}`}
+          decoding="async"
+        />
         <div className="modal-body">
           <h3>{p.title}</h3>
           <p className="muted">{p.description[lang]}</p>
