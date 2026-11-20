@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { createPortal } from "react-dom";
 import {
   AnimatePresence,
   motion,
@@ -6,7 +7,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
-import { projects, type Project } from "../data/projects";
+import { projects, type Project, type Story } from "../data/projects";
 import { useI18n } from "../i18n";
 import Reveal from "./Reveal";
 
@@ -70,6 +71,30 @@ function Card({ p, index, onOpen }: { p: Project; index: number; onOpen: () => v
   );
 }
 
+function StoryView({ story }: { story: Story }) {
+  const { t } = useI18n();
+  return (
+    <div className="story">
+      <h4>{t.projects.story.context}</h4>
+      <p>{story.context}</p>
+      <h4>{t.projects.story.role}</h4>
+      <p>{story.role}</p>
+      <h4>{t.projects.story.approach}</h4>
+      <ul>
+        {story.approach.map((s, i) => (
+          <li key={i}>{s}</li>
+        ))}
+      </ul>
+      <h4>{t.projects.story.learned}</h4>
+      <ul>
+        {story.learned.map((s, i) => (
+          <li key={i}>{s}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function Modal({ p, onClose }: { p: Project; onClose: () => void }) {
   const { t, lang } = useI18n();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -112,6 +137,7 @@ function Modal({ p, onClose }: { p: Project; onClose: () => void }) {
         <div className="modal-body">
           <h3>{p.title}</h3>
           <p className="muted">{p.description[lang]}</p>
+          {p.story && <StoryView story={p.story[lang]} />}
           <p className="modal-label">{t.projects.stack}</p>
           <div className="tags">
             {p.tags.map((tag) => (
@@ -147,9 +173,13 @@ export default function Projects() {
           <Card key={p.title} p={p} index={i} onOpen={() => setSelected(p)} />
         ))}
       </div>
-      <AnimatePresence>
-        {selected && <Modal p={selected} onClose={() => setSelected(null)} />}
-      </AnimatePresence>
+      {/* Portail : la fenêtre doit passer au-dessus de l'en-tête (qui est hors de <main>) */}
+      {createPortal(
+        <AnimatePresence>
+          {selected && <Modal p={selected} onClose={() => setSelected(null)} />}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   );
 }

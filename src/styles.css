@@ -806,13 +806,13 @@ main {
   z-index: 400;
   background: rgba(5, 5, 12, 0.7);
   backdrop-filter: blur(6px);
-  display: grid;
-  place-items: center;
+  display: flex;
   padding: 1rem;
   overflow-y: auto;
 }
 .modal {
   position: relative;
+  margin: auto;
   width: min(640px, 100%);
   background: var(--bg);
   border: 1px solid var(--border);
@@ -875,4 +875,30 @@ main {
   transform: translateY(-3px);
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* Récit d'un projet (fenêtre de détails) */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+.story h4 {
+  margin: 0.8rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--accent);
+}
+.story p,
+.story li {
+  color: var(--muted);
+}
+.story ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
