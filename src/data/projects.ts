@@ -13,6 +13,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "La Tortue — Admin (démo)",
+    description: {
+      fr: "Interface d'administration d'une location de camping-car : tableau de bord, locations et calendrier à la demi-journée. Démo interactive avec des données entièrement fictives.",
+      en: "Admin interface for a camper van rental: dashboard, rentals and half-day calendar. Interactive demo with entirely fictitious data.",
+    },
+    image: asset("img/latortue-admin.webp"),
+    tags: ["JavaScript", "SVG", "Node.js"],
+    live: "https://luumia.github.io/demo-latortue/",
+    code: "https://github.com/LuumiA/demo-latortue",
+  },
+  {
     title: "Kasa",
     description: {
       fr: "Plateforme de réservation d'appartements développée avec React et TypeScript, optimisée avec Vite et déployée sur Vercel.",
