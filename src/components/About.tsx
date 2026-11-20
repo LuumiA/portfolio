@@ -24,7 +24,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 const values = [
-  { n: 6, s: "" },
+  { n: 7, s: "" },
   { n: 10, s: "+" },
   { n: 100, s: "%" },
 ];
