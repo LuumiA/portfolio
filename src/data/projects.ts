@@ -70,6 +70,59 @@ export const projects: Project[] = [
     code: "https://github.com/LuumiA/demo-latortue",
   },
   {
+    title: "Pilote — Prévisionnel (démo)",
+    description: {
+      fr: "Outil de prévisionnel de trésorerie multi-entreprises : charges et recettes récurrentes, graphiques, comparaison réel contre prévu. Démo interactive avec des données entièrement fictives.",
+      en: "Multi-company cash-flow forecasting tool: recurring expenses and income, charts, actual vs forecast comparison. Interactive demo with entirely fictitious data.",
+    },
+    story: {
+      fr: {
+        context:
+          "Quand on gère une ou plusieurs petites entreprises, la même question revient tout le temps : à quel moment la trésorerie risque-t-elle de passer dans le rouge ? Je voulais un outil simple pour y répondre : on saisit ses charges régulières (loyer, assurance, salaires…) et ses recettes récurrentes, et l'outil calcule, mois par mois, ce qu'il restera sur le compte.",
+        role: "J'ai conçu et développé l'outil de bout en bout : le modèle de données, le moteur de calcul, les pages (tableau de bord, entreprises, réel contre prévu), la connexion avec les comptes utilisateurs, et l'hébergement dans Docker.",
+        approach: [
+          "Le cœur du projet est un moteur de calcul isolé du reste. Il décide à quels mois tombe chaque poste selon sa fréquence (hebdomadaire, mensuelle, trimestrielle, annuelle, ponctuelle…), applique les changements de montant datés, puis cumule le solde. Comme il est séparé de l'interface, je l'ai couvert de 20 tests automatiques, sans avoir besoin d'une base de données.",
+          "Les dates sont un vrai piège. Les calculs se font en UTC et chaque mois est repéré par un index (année × 12 + mois), ce qui évite les décalages d'un jour ou de fuseau horaire.",
+          "Les montants sont saisis hors taxes, et le TTC est calculé à l'affichage avec le taux de TVA de chaque poste.",
+          "Une augmentation de loyer ne doit pas réécrire le passé : un « changement de montant » daté s'applique à partir d'un mois donné et laisse l'historique intact.",
+          "J'ai ensuite ajouté le « réel contre prévu » : on note ce qui a vraiment été payé ou encaissé, et l'outil mesure l'écart avec le prévisionnel, en vert quand il est favorable.",
+          "Chaque personne ne voit que ses entreprises et celles qu'on a partagées avec elle. J'ai centralisé tout le contrôle d'accès à un seul endroit pour ne rien oublier.",
+          "Côté sécurité : mots de passe hachés (bcrypt), session en cookie signé, blocage après plusieurs échecs de connexion, validation de toutes les saisies côté serveur, en-têtes de sécurité (CSP, HSTS…) et correction des vulnérabilités des dépendances.",
+          "Pour sortir les chiffres : export CSV (protégé contre les formules Excel), impression en PDF et sauvegarde JSON.",
+        ],
+        learned: [
+          "Isoler la logique métier de l'interface la rend testable et réutilisable. C'est ce qui m'a permis de reprendre le calcul tel quel pour la démo, en remplaçant seulement la base de données par un stockage dans le navigateur.",
+          "Les dates (fuseaux, mois de longueurs différentes, semaines) demandent des tests dès le départ.",
+          "Dès qu'il y a des comptes, il faut penser sécurité tout de suite : droits d'accès, limitation des tentatives, validation côté serveur.",
+        ],
+      },
+      en: {
+        context:
+          "When you run one or several small businesses, the same question keeps coming back: when will the cash balance go negative? I wanted a simple tool to answer it: you enter your regular expenses (rent, insurance, salaries…) and your recurring income, and the tool computes, month by month, what will be left in the account.",
+        role: "I designed and built the tool end to end: the data model, the calculation engine, the pages (dashboard, companies, actual vs forecast), the login with user accounts, and the Docker hosting.",
+        approach: [
+          "The heart of the project is a calculation engine kept separate from the rest. It decides which months each item falls in depending on its frequency (weekly, monthly, quarterly, yearly, one-off…), applies dated amount changes, then accumulates the balance. Because it is separate from the interface, I covered it with 20 automated tests that need no database.",
+          "Dates are a real trap. Calculations are done in UTC and each month is identified by an index (year × 12 + month), which avoids off-by-one-day and time zone shifts.",
+          "Amounts are entered excluding VAT, and the VAT-inclusive figure is computed at display time with each item's VAT rate.",
+          "A rent increase must not rewrite the past: a dated \"amount change\" applies from a given month and leaves the history untouched.",
+          "I then added \"actual vs forecast\": you record what was really paid or received, and the tool measures the gap with the forecast, in green when it is favorable.",
+          "Each person only sees their own companies and those shared with them. I centralized all access control in one place so nothing gets forgotten.",
+          "On security: hashed passwords (bcrypt), signed cookie sessions, lockout after several failed logins, server-side validation of every input, security headers (CSP, HSTS…) and fixes for dependency vulnerabilities.",
+          "To get the numbers out: CSV export (protected against Excel formulas), PDF printing and a JSON backup.",
+        ],
+        learned: [
+          "Keeping business logic separate from the interface makes it testable and reusable. That is what let me reuse the calculation as is for the demo, only replacing the database with browser storage.",
+          "Dates (time zones, months of different lengths, weeks) need tests from the start.",
+          "As soon as there are accounts, security has to be considered right away: access rights, attempt limiting, server-side validation.",
+        ],
+      },
+    },
+    image: asset("img/pilote-demo.webp"),
+    tags: ["Next.js", "TypeScript", "PostgreSQL"],
+    live: "https://luumia.github.io/demo-pilote/",
+    code: "https://github.com/LuumiA/demo-pilote",
+  },
+  {
     title: "Kasa",
     description: {
       fr: "Plateforme de réservation d'appartements développée avec React et TypeScript, optimisée avec Vite et déployée sur Vercel.",
