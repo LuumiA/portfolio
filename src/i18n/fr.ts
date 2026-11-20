@@ -65,6 +65,12 @@ export const fr = {
     close: "Fermer",
     stack: "Technologies",
     preview: "Aperçu du projet",
+    story: {
+      context: "Le contexte",
+      role: "Mon rôle",
+      approach: "Comment je m'y suis pris",
+      learned: "Ce que j'en retiens",
+    },
   },
   contact: {
     eyebrow: "Contact",

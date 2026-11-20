@@ -67,6 +67,12 @@ export const en: Dict = {
     close: "Close",
     stack: "Tech stack",
     preview: "Preview of the project",
+    story: {
+      context: "The context",
+      role: "My role",
+      approach: "How I approached it",
+      learned: "What I took away",
+    },
   },
   contact: {
     eyebrow: "Contact",
